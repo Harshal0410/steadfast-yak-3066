@@ -1,7 +1,7 @@
 # steadfast-yak-3066
 # Crime Information Management System
 
-This is a Crime Information Management System which store the record of criminala.
+This is a Crime Information Management System which store the record of criminals.
 
 This project is divided into two parts:
 - Admin
