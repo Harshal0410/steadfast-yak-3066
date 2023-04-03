@@ -1,0 +1,21 @@
+package com.masai;
+
+import java.util.HashMap;
+
+public class test {
+	public static void main(String[] args) {
+		HashMap <Integer,String> map = new HashMap<Integer,String>();
+		
+		map.put(1, "hello world");
+		System.out.println(map.get(1));
+		
+		String str = map.get(1);
+		if(str.contains("hello")) {
+			System.out.println("helllow");
+		}
+		str = str + " fsfsdf";
+		str = str.replace('h', 'i');
+		System.out.println(str);
+		
+	}
+}

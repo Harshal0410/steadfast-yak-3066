@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\Lenovo\Desktop\steadfast-yak--3066\.metadata\.plugins\org.eclipse.jdt.core
+3938865110.index
+3082448025.index
+1865797976.index
