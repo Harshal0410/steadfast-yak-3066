@@ -1,0 +1,123 @@
+package com.masai;
+
+import java.util.*;
+
+public class Main {
+	static void mainCaller() {
+		main(null);
+	}
+	public static void main(String[] args) {
+//		System.out.println("hello world");
+		
+		Scanner sc = new Scanner(System.in);
+		HashMap<Integer,String> record = new HashMap<Integer,String>();
+		
+		System.out.println("Enter 1 if you are admin");
+		System.out.println("Enter 2 if you are user");
+		int select = sc.nextInt();
+		int u;
+		
+		if(select == 1) {
+			boolean ans;
+			while(true) {
+				System.out.println("Please Enter Your UserName here: ");
+				String username = sc.next();
+				
+				System.out.println("Please Enter your password here: ");
+				String password = sc.next();
+				
+				AdminLogin ad = new AdminLogin();
+				ans = ad.check(username,password);
+				if(ans == true) {
+					break;
+				}
+			}
+			
+			if(ans == true) {
+				
+//				ArrayList<String> record = new ArrayList<String>();
+				String str;
+				while(true) {
+					System.out.println("Press 1 to add new crime report.");
+					System.out.println("Press 2 to remove crminal record.");
+					System.out.println("Press 3 to see all criminal record.");
+					System.out.println("Press 4 to Logout.");
+					int n = sc.nextInt();
+					
+					if(n == 1) {
+						System.out.println("Enter criminal id: ");
+						int id = sc.nextInt();
+						
+						System.out.println("Enter the name of criminal");
+						String name = sc.next();
+						
+						System.out.println("Enter the type of crime commited(Robbery, Theft, Homicide)");
+						String type = sc.next();
+						
+						System.out.println("Enter the area where crime is commited");
+						String area = sc.next();
+						
+						System.out.println("Enter the name of victum");
+						String victum = sc.next();
+						
+						CrimeDetails us = new CrimeDetails(id,name,type,area,victum);
+						str = us.details();
+						
+						record.put(id,str);
+						
+						System.out.println("Report added successfully");
+					}
+					if(n == 2) {
+						System.out.println("Enter id of the record to be deleted:");
+						int i = sc.nextInt();
+						
+						record.remove(i);
+						System.out.println("Record deleted successfully");
+					}
+					if(n == 4) {
+						System.out.println("logout Successfully");
+//						System.out.println("Enter 1 if you are admin");
+//						System.out.println("Enter 2 if you are user");
+//						u = sc.nextInt();
+//						select = u;
+						mainCaller();
+					}
+					if(n == 3) {
+						System.out.println(record);
+					}
+				}
+			}
+		}
+		while(true)
+		if(select == 2) {
+			System.out.println("Enter 1 for searching criminal record by name");
+			System.out.println("Enter 2 to logout");
+			u = sc.nextInt();
+			
+			if(u == 1) {
+				System.out.println("Enter the name here: ");
+				String s = sc.next();
+				
+				int size = record.size();
+				boolean flag  = false;
+				for(int i = 1;i<=size;i++) {
+					String value = record.get(i);
+					if(value.contains(s)) {
+						System.out.println(value);
+						flag = true;
+					}
+				}
+				if(flag == false) {
+					System.out.println("Record not found!");
+				}
+			}
+			if(u == 2) {
+				System.out.println("Logout successfull");
+				mainCaller();
+			}
+		}
+		
+		
+	}
+
+}

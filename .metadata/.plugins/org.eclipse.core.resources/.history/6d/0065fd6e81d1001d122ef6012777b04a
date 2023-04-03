@@ -1,0 +1,31 @@
+package com.masai;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+//		System.out.println("hello world");
+//		
+		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.println("Please Enter Your UserName here: ");
+//		String username = sc.next();
+//		
+//		System.out.println("Please Enter your password here: ");
+//		String password = sc.next();
+//		
+//		AdminLogin ad = new AdminLogin();
+//		ad.check(username,password);
+		
+		System.out.println("Press 1 to add new crime report.");
+		int n = sc.nextInt();
+		
+		if(n == 1) {
+			CrimeDetails us = new CrimeDetails("harshal", "123","dhfh","harshal@123");
+			String str =us.toString();
+			System.out.println(str);
+		}
+		
+	}
+
+}

@@ -1,0 +1,63 @@
+package com.masai;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+//		System.out.println("hello world");
+		
+		Scanner sc = new Scanner(System.in);	
+		
+	
+		System.out.println("Please Enter Your UserName here: ");
+		String username = sc.next();
+		
+		System.out.println("Please Enter your password here: ");
+		String password = sc.next();
+		
+		AdminLogin ad = new AdminLogin();
+		boolean ans = ad.check(username,password);
+		
+		if(ans == true) {
+			Set<String> record = new HashSet<String>();
+			while(true) {
+				System.out.println("Press 1 to add new crime report.");
+				System.out.println("Press 2 to Logout.");
+				System.out.println("Press 3 to see all criminal record.");
+				int n = sc.nextInt();
+				
+				if(n == 1) {
+					
+					System.out.println("Enter the name of criminal");
+					String name = sc.next();
+					
+					System.out.println("Enter the type of crime commited(Robbery, Theft, Homicide)");
+					String type = sc.next();
+					
+					System.out.println("Enter the area where crime is commited");
+					String area = sc.next();
+					
+					System.out.println("Enter the name of victum");
+					String victum = sc.next();
+					
+					CrimeDetails us = new CrimeDetails(name,type,area,victum);
+					String str = us.toString();
+					
+					record.add(str);
+					
+					System.out.println(str);
+					System.out.println("Report added successfully");
+				}
+				if(n == 2) {
+					System.out.println("logout Successfully");
+					System.exit(0);
+				}
+				if(n == 3) {
+					System.out.println(record);
+				}
+			}
+		}
+		
+	}
+
+}
